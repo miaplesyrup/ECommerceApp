@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom';
+import {createBrowserRouter, Navigate} from 'react-router-dom';
 import Login from './views/Login.jsx';
 import Signup from './views/Signup.jsx';
 import Users from './views/Users.jsx';
@@ -14,8 +14,7 @@ const router = createBrowserRouter( [
         children: [
             {
                 path: '/',
-                // eslint-disable-next-line react/jsx-no-undef
-                element: <Navigate to='/users' />
+                element: <Navigate to={'/users'} />
             },
             {
                 path: '/dashboard',
