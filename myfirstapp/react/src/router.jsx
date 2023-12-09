@@ -5,27 +5,41 @@ import Users from './views/Users.jsx';
 import NotFound from './views/NotFound.jsx';
 import DefaultLayout from './assets/components/DefaultLayout.jsx';
 import GuestLayout from './assets/components/GuestLayout.jsx';
+import Dashboard from './views/Dashboard.jsx';
 
 const router = createBrowserRouter( [
     {
         path: '/',
-        element: <DefaultLayout />
+        element: <DefaultLayout />,
+        children: [
+            {
+                path: '/',
+                // eslint-disable-next-line react/jsx-no-undef
+                element: <Navigate to='/users' />
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard />
+            },
+            {
+                path: '/users',
+                element: <Users/>
+            },
+        ]
     },
     {
         path: '/',
-        element: <GuestLayout />
-    },
-    {
-        path: '/login',
-        element: <Login />
-    },
-    {
-        path: '/signup',
-        element: <Signup/>
-    },
-    {
-        path: '/users',
-        element: <Users/>
+        element: <GuestLayout />,
+        children: [
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/signup',
+                element: <Signup/>
+            },
+        ]
     },
     {
         path: '*',
