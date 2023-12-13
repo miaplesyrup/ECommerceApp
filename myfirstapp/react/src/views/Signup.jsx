@@ -8,9 +8,7 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
-
   const [errors, setErrors] = useState(null);
-
   const {setUser, setToken} = useStateContext()
 
   const onSubmit = (ev) => {
@@ -42,8 +40,8 @@ export default function Signup() {
         Signup for free
       </h1>
       {errors && <div className="alert">
-        {Object.keys(errors).map(key =(
-          <p key={key}>{ errors[key][0]}</p>
+        {Object.keys(errors).map(key => (
+          <p key={key}>{errors[key][0]}</p>
         ))}
       </div>
       }
