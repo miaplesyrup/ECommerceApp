@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SignupRequest;
 use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +38,7 @@ class AuthController extends Controller
         }
         /** @var User $user */
         $user = Auth::user();
-        $token =$user->createToken('main')-> plaintextToken;
+        $token =$user->createToken('main')-> plainTextToken;
         return response (compact('user', 'token'));
     }
 
